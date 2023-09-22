@@ -1,3 +1,6 @@
+// Nama : Retno Pinka Pratiwi
+// NIM  : L0122137
+
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -11,9 +14,11 @@ public class PPBO_02_L0122137 {
     PPBO_02_L0122137 swalayan = new PPBO_02_L0122137();
     Scanner scanner = new Scanner(System.in);
 
-    swalayan.arrayListBarang.add(new Barang("Barang1", 10000, 5));
-    swalayan.arrayListBarang.add(new Barang("Barang2", 12000, 5));
-    swalayan.arrayListBarang.add(new Barang("Barang3", 15000, 5));
+    swalayan.arrayListBarang.add(new Barang("Bear Brand", 15000, 5));
+    swalayan.arrayListBarang.add(new Barang("Cimory Fresh Milk", 10000, 5));
+    swalayan.arrayListBarang.add(new Barang("Frisian Flag", 15000, 5));
+    swalayan.arrayListBarang.add(new Barang("Greenfields", 15000, 5));
+    swalayan.arrayListBarang.add(new Barang("Ultra Milk", 12000, 5));
 
     while (true) {
       int opsi = swalayan.cetakMenu(scanner);
@@ -106,8 +111,7 @@ public class PPBO_02_L0122137 {
           "| %-24s | Rp%14d | %8d |\n",
           barang.getNama(),
           barang.getHarga(),
-          barang.getJumlah()
-      );
+          barang.getJumlah());
     }
 
     System.out.println("----------------------------------------------------------");
@@ -180,12 +184,6 @@ public class PPBO_02_L0122137 {
 
       arrayListBarang.get(index).setJumlah(barangKeIndex.getJumlah() + jumlah);
 
-      //
-
-      // if (arrayListBarang.get(index).getJumlah() >= jumlah) {
-      // arrayListBarang.get(index).setJumlah(arrayListBarang.get(index).getJumlah() -
-      // jumlah);
-      // }
     } else {
       System.out.println("tdk ada");
     }
