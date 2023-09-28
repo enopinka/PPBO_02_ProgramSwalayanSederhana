@@ -10,7 +10,7 @@ public class PPBO_02_L0122137 {
   public static final int PPN = 11;
   public static int totalTransaksi;
   private int kasToko = 0;
-  // arraylist untuk menambahkan objek barang ke dlaam list
+  // arraylist untuk menambahkan objek barang ke dalam list
   private ArrayList<Barang> arrayListBarang = new ArrayList<Barang>();
 
   public static void main(String[] args) {
@@ -87,7 +87,7 @@ public class PPBO_02_L0122137 {
 
     }
 
-    // mencetak daftar barang di dalam gudang
+    // memanggil method untuk mencetak daftar barang di dalam gudang
     swalayan.cetakDaftarBarang();
 
     // menutup scanner
@@ -119,6 +119,7 @@ public class PPBO_02_L0122137 {
     System.out.println("5. Keluar");
     System.out.print(">> ");
 
+    // meminta user memasukkan angka sesuai menu
     int opsi = scanner.nextInt();
     scanner.nextLine();
 
@@ -131,6 +132,7 @@ public class PPBO_02_L0122137 {
     System.out.printf("| %-24s | %-16s | %-8s |\n", "Nama barang", "Harga satuan", "Jumlah");
     System.out.println("----------------------------------------------------------");
 
+    // mencetak nama, harga, dan jumlah dengan getter secara berulang
     for (Barang barang : this.arrayListBarang) {
       System.out.printf(
           "| %-24s | Rp%14d | %8d |\n",
@@ -169,7 +171,10 @@ public class PPBO_02_L0122137 {
         arrayListBarang.get(index).setJumlah(barangKeIndex.getJumlah() - jumlah);
 
         // aritmatika untuk transaksi penjualan
+        // total harga adalah jumlah harga dari barang dikali dengan jumlah yang dibeli
         int totalHarga = arrayListBarang.get(index).getHarga() * jumlah;
+        // PPN dihitung dengan mengalikan 11% dengan total harga yang telah dihitung
+        // sebelumnya
         double totalPPN = totalHarga * ((double) PPBO_02_L0122137.PPN / 100);
         int totalBayar = totalHarga + (int) totalPPN;
 
@@ -178,6 +183,7 @@ public class PPBO_02_L0122137 {
         System.out.printf("PPN              : Rp%16d\n", (int) totalPPN);
         System.out.printf("Total pembayaran : Rp%16d\n", (int) totalBayar);
 
+        // inisialisasi transaksiBerhasil dengan false
         boolean transaksiBerhasil = false;
 
         while (!transaksiBerhasil) {
@@ -196,6 +202,8 @@ public class PPBO_02_L0122137 {
             System.out.printf("Kembalian        : Rp%16d\n", kembalian);
 
             System.out.println("Transaksi sukses!");
+
+            // diinisialisasi ulang dengan nilai true karena transaksi berhasil dilakukan
             transaksiBerhasil = true;
           } else {
             // ketika uang tidak memenuhi, menampilkan pesan eror dan program meminta
